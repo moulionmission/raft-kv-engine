@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  node0:
+    build: .
+    command: ["-id=node-0", "-peers=node-1,node-2,node-3,node-4", "-port=8080"]
+    ports:
+      - "8080:8080"
+    networks:
+      - raft-net
+
+  node1:
+    build: .
+    command: ["-id=node-1", "-peers=node-0,node-2,node-3,node-4", "-port=8081"]
+    ports:
+      - "8081:8081"
+    networks:
+      - raft-net
+
+  node2:
+    build: .
+    command: ["-id=node-2", "-peers=node-0,node-1,node-3,node-4", "-port=8082"]
+    ports:
+      - "8082:8082"
+    networks:
+      - raft-net
+
+  node3:
+    build: .
+    command: ["-id=node-3", "-peers=node-0,node-1,node-2,node-4", "-port=8083"]
+    ports:
+      - "8083:8083"
+    networks:
+      - raft-net
+
+  node4:
+    build: .
+    command: ["-id=node-4", "-peers=node-0,node-1,node-2,node-3", "-port=8084"]
+    ports:
+      - "8084:8084"
+    networks:
+      - raft-net
+
+networks:
+  raft-net:
+    driver: bridge
