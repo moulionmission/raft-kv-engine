@@ -12,16 +12,16 @@ A resilient, fault-tolerant distributed key-value store implemented in **Go**, p
 
 ```mermaid
 graph TD
-    Client[Client / REST Request] -->|Submit Command| Leader[Node 0 - Leader]
-    Leader -->|1. Append Log| LocalLog[(Leader WAL Log)]
-    Leader -->|2. Replicate RPC| Follower1[Node 1 - Follower]
-    Leader -->|2. Replicate RPC| Follower2[Node 2 - Follower]
-    Leader -->|2. Replicate RPC| Follower3[Node 3 - Follower]
-    Leader -->|2. Replicate RPC| Follower4[Node 4 - Follower]
-    Follower1 -->|Ack| Leader
-    Follower2 -->|Ack| Leader
-    Leader -->|3. Commit & Apply| KV[(Replicated KV Store)]
-    Leader -->|4. Respond OK| Client
+    Client["Client / REST Request"] -->|"Submit Command"| Leader["Node 0 - Leader"]
+    Leader -->|"1. Append Log"| LocalLog[("Leader WAL Log")]
+    Leader -->|"2. Replicate RPC"| Follower1["Node 1 - Follower"]
+    Leader -->|"2. Replicate RPC"| Follower2["Node 2 - Follower"]
+    Leader -->|"2. Replicate RPC"| Follower3["Node 3 - Follower"]
+    Leader -->|"2. Replicate RPC"| Follower4["Node 4 - Follower"]
+    Follower1 -->|"Ack"| Leader
+    Follower2 -->|"Ack"| Leader
+    Leader -->|"3. Commit & Apply"| KV[("Replicated KV Store")]
+    Leader -->|"4. Respond OK"| Client
 ```
 
 ---
