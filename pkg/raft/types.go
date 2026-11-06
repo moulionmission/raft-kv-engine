@@ -72,3 +72,4 @@ func DefaultConfig(nodeID string, peers []string) Config {
 		ElectionTimeoutMax: 300 * time.Millisecond,
 	}
 }
+

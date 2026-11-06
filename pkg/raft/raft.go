@@ -406,3 +406,4 @@ func (n *Node) GetTerm() uint64 {
 	defer n.mu.Unlock()
 	return n.currentTerm
 }
+

@@ -13,3 +13,4 @@ COPY --from=builder /raft-server .
 
 EXPOSE 8080
 ENTRYPOINT ["./raft-server"]
+

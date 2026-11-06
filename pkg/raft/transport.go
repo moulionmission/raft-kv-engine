@@ -116,3 +116,4 @@ func (sn *SimulatedNetwork) SendAppendEntries(from, target string, args *AppendE
 	targetNode.HandleAppendEntries(args, &reply)
 	return &reply, nil
 }
+

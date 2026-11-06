@@ -61,3 +61,4 @@ func (kv *KVStore) Restore(snapshot map[string]string) {
 		kv.data[k] = v
 	}
 }
+
